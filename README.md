@@ -64,7 +64,10 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ---
 
-### 4. Normalizálás és standardizálás
+### 4. Standardizálás
+
+- Az `Age`, `Fare` oszlopok numerikusak, ezeket standardizáltam
+    - Ez azért kellett, mert nagyon különböző skálán voltak (`Age` kb. 0–80, `Fare` kb. 0–500)
 
 ---
 
