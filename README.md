@@ -90,9 +90,22 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ### 6. Modell – Neurális háló
 
+- Használtam egy Sequential neurális hálót, több rejtett réteggel
+    - Dense(64), Dense(32), Dense(16), Dense(1)
+- Aktivációs függvény: ReLU a rejtett rétegeknél, sigmoid a kimeneti rétegnél
+- Optimalizáló: Adam, learning_rate=5e-4.
+- Loss: binary_crossentropy a túlélés bináris osztályozásához
+
 ---
 
 ### 7. Modell tanítása és értékelése
+
+- Tanítás: `x_train`, `y_train`
+- Validáció: `x_validation`, `y_validation`
+- EarlyStopping: a val_loss monitorozásával, patience=25
+- Batch méret: 16, epoch: 100.
+- Teljesítmény: val_accuracy ~81–83%, loss 0.33–0.44 körül
+- A modell pontosságát vizualizációval is ellenőriztem (loss, accuracy)
 
 ---
 
