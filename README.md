@@ -36,7 +36,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
     - Az `Embarked` oszlopban pedig a leggyakoribb kategóriával (módusz) pótoltam a hiányzó adatokat (`mode()`)
     - A hiányzó értékek pótlása során az eredeti `train` és `test` adathalmazokat változatlanul hagytam, a feldolgozott változatokat `train_new` és `test_new` néven tároltam el.
 - Felesleges adatok
-    - a `PassengerId` oszlopot is eldobtam, hiszen csak egy sorszám, és nincs köze a túléléshez
+    - a `PassengerId`, `Ticket` oszlopokat is eldobtam, nincs közük a túléléshez
 - Outlierek elemzése
     - az `Age` és `Fare` oszlopokat vizsgáltam boxen plot segítségével
         - az `Age` oszlop teljesen rendben volt
@@ -58,9 +58,13 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
     - `Title`
         - A `Name` oszlopból regex kifejezés segítségével kinyertem a `Title`-t (titulust)
         - Ezután a `Name` oszlopot eldobtam, mert szerintem nem releváns a megoldásban
+        - Erre később jöttem rá, de nagyon sok egyedi érték volt benne, ezért csináltam egy "Rare" kategóriát, és azokat tettem bele, amik 30-nál kevesebbszer fordulnak elő
+        - Majd átalakítottam numerikussá (one-hot encoding)
     - `Embarked`:
         - Hol szállt fel az utas
         - One-hot encoding-al numerikussá alakítottam (C,Q,S)
+    - `Sex`:
+        - label encoding: `map()`-el numerikussá alakítottam, mert a neu-hálónál nem tudta feldolgozni alapból
 
 ---
 
