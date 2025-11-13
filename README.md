@@ -19,12 +19,11 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 - `requirements.txt` - használt csomagok listája (numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow és függőségeik)
 - `README.md` - ez a dokumentáció
 
-
 ---
 
 ## Fő lépések
 
-### 1️. Adatok betöltése és feltárása
+### 1️. Adatok betöltése
 - `pandas` segítségével a `train.csv` fájl betöltése
 - Adatok megtekintése (`head()`, `describe()`)
 
@@ -42,9 +41,23 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
     - az `Age` és `Fare` oszlopokat vizsgáltam boxen plot segítségével
         - az `Age` oszlop teljesen rendben volt
         - a `Fare` oszlopban van kiugró érték (500 körül), de ezek elvileg valós első osztályú jegyárak, ezért nem lettek eltávolítva
+
 ---
 
 ### 3. Feature engineering
+
+- Létrehoztam két új feature-t:
+    - FamilySize:
+        - SibSp + Parch + 1
+        - SibSp: testvér(ek) és házastárs
+        - Parch: szülő(k), gyerek(ek)
+        - +1: maga az utas
+    - IsAlone:
+        - FamilySize feature szerint készítettem
+        - ha a FamilySize = 1, akkor egyedül utazik
+    - Embarked:
+        - Hol szállt fel az utas
+        - One-hot encoding-al numerikussá alakítottam (C,Q,S)
 
 ---
 
