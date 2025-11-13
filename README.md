@@ -10,7 +10,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 - `titanic.ipynb` - fő notebook – adatkezelés és modell
 - `docs` mappa - a beadandó követelményei
-- `titanic` mappa - Titanic adatfájlok (Kaggle-ről)
+- `titanic` mappa - Titanic adatfájl (Kaggle-ről)
 - `setup_venv.bat` - virtuális környezetet létrehozó batch fájl:
     - Ellenőrzi, hogy létezik-e már a virtuális környezet
     - Ha nem létezik, létrehozza azt
@@ -34,7 +34,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
     - A hiányzó értékek vizsgálatánál észrevettem, hogy a `Cabin` oszlopban rengeteg adat (kb. 80%) hiányzik. Ezért ezt a feature-t eldobtam, nem használtam fel a modellben.
     - Az `Age` és `Fare` oszlopokban a hiányzó adatokat mediánnal pótoltam
     - Az `Embarked` oszlopban pedig a leggyakoribb kategóriával (módusz) pótoltam a hiányzó adatokat (`mode()`)
-    - A hiányzó értékek pótlása során az eredeti `train` és `test` adathalmazokat változatlanul hagytam, a feldolgozott változatokat `train_new` és `test_new` néven tároltam el.
+    - A hiányzó értékek pótlása során az eredeti `train` adathalmazt változatlanul hagytam, a feldolgozott változatot `train_new` néven tároltam el
 - Felesleges adatok
     - a `PassengerId`, `Ticket` oszlopokat is eldobtam, nincs közük a túléléshez
 - Outlierek elemzése
@@ -46,7 +46,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ### 3. Feature engineering
 
-- Létrehoztam két új feature-t:
+- Létrehoztam új feature-öket:
     - `FamilySize`:
         - `SibSp` + `Parch` + 1
         - `SibSp`: testvér(ek) és házastárs
@@ -60,6 +60,8 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
         - Ezután a `Name` oszlopot eldobtam, mert szerintem nem releváns a megoldásban
         - Erre később jöttem rá, de nagyon sok egyedi érték volt benne, ezért csináltam egy "Rare" kategóriát, és azokat tettem bele, amik 30-nál kevesebbszer fordulnak elő
         - Majd átalakítottam numerikussá (one-hot encoding)
+    
+- One-hot és label encoding:    
     - `Embarked`:
         - Hol szállt fel az utas
         - One-hot encoding-al numerikussá alakítottam (C,Q,S)
@@ -77,12 +79,9 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ### 5. Adatok szétválasztása
 
-- A kaggle adatok már külön `train` és `test` fájlokban voltak, ezért nem kellett őket szétválasztani
 - A `train` adatot használtam a modell tanítására: `x_train`, `y_train`
-- A `test` adatot csak a végső predikcióhoz: `x_test`
 - A train adaton belül készítettem train/validation splitet (`train_test_split`)
     - `x_validation`, `y_validation`
-    - EarlyStopping és teljesítmény ellenőrzés miatt kellett
 - `stratify` paraméter:  megőrzi az osztályok arányát a train és validation halmazban
     - pl.: Survived (0/1) aránya ugyanolyan lesz mindkét halmazban
 
