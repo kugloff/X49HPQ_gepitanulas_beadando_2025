@@ -8,11 +8,16 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ## Projekt felépítése
 
-- titanic.ipynb - fő notebook – adatkezelés és modell
-- docs mappa - a beadandó követelményei
-- titanic mappa - Titanic adatfájlok (Kaggle-ről)
-- requirements.txt - használt csomagok listája
-- README.md - ez a dokumentáció
+- `titanic.ipynb` - fő notebook – adatkezelés és modell
+- `docs` mappa - a beadandó követelményei
+- `titanic` mappa - Titanic adatfájlok (Kaggle-ről)
+- `setup_venv.bat` - virtuális környezetet létrehozó batch fájl:
+    - Ellenőrzi, hogy létezik-e már a virtuális környezet (`venv`)
+    - Ha nem létezik, létrehozza azt
+    - Aktiválja a venv-et, és telepíti a szükséges csomagokat (`requirements.txt` fájl alapján)
+    - Használathoz csak futtatni kell a batch fájlt
+- `requirements.txt` - használt csomagok listája (numpy, pandas, matplotlib, scikit-learn, seaborn, tensorflow és függőségeik)
+- `README.md` - ez a dokumentáció
 
 
 ---
