@@ -103,14 +103,14 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 - Tanítás: `x_train`, `y_train`
 - Validáció: `x_validation`, `y_validation`
 - EarlyStopping: a val_loss monitorozásával, patience=25
-- Batch méret: 16, epoch: 100.
-- Teljesítmény: val_accuracy ~81–83%, loss 0.33–0.44 körül
-- A modell pontosságát vizualizációval is ellenőriztem (loss, accuracy)
+- Batch méret: 32, epoch: 100.
+- Teljesítmény: val_accuracy ~81–85%, loss 0.33–0.44 körül
+- A modell pontosságát vizualizációval is ellenőriztem
 
 ---
 
 ### 8. Eredmény
-A neurális háló **__** ért el a validációs adatokon 
+A neurális háló **80-85%**-ot ért el a validációs adatokon
 
 ---
 
