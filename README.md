@@ -12,7 +12,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 - `docs` mappa - a beadandó követelményei
 - `titanic` mappa - Titanic adatfájlok (Kaggle-ről)
 - `setup_venv.bat` - virtuális környezetet létrehozó batch fájl:
-    - Ellenőrzi, hogy létezik-e már a virtuális környezet (`venv`)
+    - Ellenőrzi, hogy létezik-e már a virtuális környezet
     - Ha nem létezik, létrehozza azt
     - Aktiválja a venv-et, és telepíti a szükséges csomagokat (`requirements.txt` fájl alapján)
     - Használathoz csak futtatni kell a batch fájlt
@@ -56,7 +56,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
         - `FamilySize` feature szerint készítettem
         - ha a `FamilySize` = 1, akkor egyedül utazik
     - `Title`
-        - A `Name` oszlopból regex kifejezés segítségével kinyertem a `Title`-t
+        - A `Name` oszlopból regex kifejezés segítségével kinyertem a `Title`-t (titulust)
         - Ezután a `Name` oszlopot eldobtam, mert szerintem nem releváns a megoldásban
     - `Embarked`:
         - Hol szállt fel az utas
@@ -66,20 +66,33 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ### 4. Standardizálás
 
-- Az `Age`, `Fare` oszlopok numerikusak, ezeket standardizáltam
+- Az `Age`, `Fare` oszlopokat standardizáltam
     - Ez azért kellett, mert nagyon különböző skálán voltak (`Age` kb. 0–80, `Fare` kb. 0–500)
 
 ---
 
-### 5. Modell – Neurális háló
+### 5. Adatok szétválasztása
+
+- A kaggle adatok már külön `train` és `test` fájlokban voltak, ezért nem kellett őket szétválasztani
+- A `train` adatot használtam a modell tanítására: `x_train`, `y_train`
+- A `test` adatot csak a végső predikcióhoz: `x_test`
+- A train adaton belül készítettem train/validation splitet (`train_test_split`)
+    - `x_validation`, `y_validation`
+    - EarlyStopping és teljesítmény ellenőrzés miatt kellett
+- `stratify` paraméter:  megőrzi az osztályok arányát a train és validation halmazban
+    - pl.: Survived (0/1) aránya ugyanolyan lesz mindkét halmazban
 
 ---
 
-### 6. Modell tanítása és értékelése
+### 6. Modell – Neurális háló
 
 ---
 
-### 7. Eredmény
+### 7. Modell tanítása és értékelése
+
+---
+
+### 8. Eredmény
 A neurális háló **__** ért el a validációs adatokon 
 
 ---
