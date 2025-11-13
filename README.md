@@ -47,29 +47,36 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 ### 3. Feature engineering
 
 - Létrehoztam két új feature-t:
-    - FamilySize:
-        - SibSp + Parch + 1
-        - SibSp: testvér(ek) és házastárs
-        - Parch: szülő(k), gyerek(ek)
+    - `FamilySize`:
+        - `SibSp` + `Parch` + 1
+        - `SibSp`: testvér(ek) és házastárs
+        - `Parch`: szülő(k), gyerek(ek)
         - +1: maga az utas
-    - IsAlone:
-        - FamilySize feature szerint készítettem
-        - ha a FamilySize = 1, akkor egyedül utazik
-    - Embarked:
+    - `IsAlone`:
+        - `FamilySize` feature szerint készítettem
+        - ha a `FamilySize` = 1, akkor egyedül utazik
+    - `Title`
+        - A `Name` oszlopból regex kifejezés segítségével kinyertem a `Title`-t
+        - Ezután a `Name` oszlopot eldobtam, mert szerintem nem releváns a megoldásban
+    - `Embarked`:
         - Hol szállt fel az utas
         - One-hot encoding-al numerikussá alakítottam (C,Q,S)
 
 ---
 
-### 4. Modell – Neurális háló
+### 4. Normalizálás és standardizálás
 
 ---
 
-### 5. Modell tanítása és értékelése
+### 5. Modell – Neurális háló
 
 ---
 
-### 6. Eredmény
+### 6. Modell tanítása és értékelése
+
+---
+
+### 7. Eredmény
 A neurális háló **__** ért el a validációs adatokon 
 
 ---
