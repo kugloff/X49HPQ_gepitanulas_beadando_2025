@@ -23,7 +23,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ## Fő lépések
 
-### 1️. Adatok betöltése
+### 1. Adatok betöltése
 - `pandas` segítségével a `train.csv` fájl betöltése
 - Adatok megtekintése (`head()`, `describe()`)
 
@@ -90,26 +90,41 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 ### 6. Modell – Neurális háló
 
 - Használtam egy Sequential neurális hálót, több rejtett réteggel
-    - Dense(64), Dense(32), Dense(16), Dense(1)
-- Aktivációs függvény: ReLU a rejtett rétegeknél, sigmoid a kimeneti rétegnél
+    - Dense(16), Dense(8), Dense(4), Dense(1)
+- Aktivációs függvények: 
+    - ReLU a rejtett rétegeknél,
+    - sigmoid a kimeneti rétegnél
 - Optimalizáló: Adam, learning_rate=5e-4.
-- Loss: binary_crossentropy a túlélés bináris osztályozásához
+- Loss függvény: binary_crossentropy
 
 ---
 
 ### 7. Modell tanítása és értékelése
 
 - Tanítás: `x_train`, `y_train`
-- Validáció: `x_validation`, `y_validation`
+- Validáció: `x_val`, `y_val`
 - EarlyStopping: a val_loss monitorozásával, patience=25
 - Batch méret: 32, epoch: 100.
-- Teljesítmény: val_accuracy ~81–85%, loss 0.33–0.44 körül
-- A modell pontosságát vizualizációval is ellenőriztem
 
 ---
 
-### 8. Eredmény
-A neurális háló **80-85%**-ot ért el a validációs adatokon
+### 8. Teljesítmény
+
+- Validation accuracy: 80–85%
+- Loss: 0.33–0.44 körül
+- A tanulás alakulását grafikonon is vizualizáltam:
+  - Loss alakulása az epoch-ok során
+  - Pontosság alakulása az epoch-ok során
+
+---
+
+### 9. Predikáció és értékelés
+
+- Teszt adatokon:
+  - Confusion Matrix
+  - ROC görbe és AUC
+- A teszt pontossága: ~83%
+- A ROC AUC: ~85%
 
 ---
 
