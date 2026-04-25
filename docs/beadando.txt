@@ -1,0 +1,35 @@
+Készíts egy neurális háló alapú megoldást PyTorch (vagy hasonló keretrendszer) használatával 
+egy választott, publikusan elérhető adathalmazon (pl. MNIST, CIFAR-10, https://www.kaggle.com/datasets, stb.).
+
+Követelmények:
+
+1. Feladat definiálása
+
+- A probléma típusa (klasszifikáció/regresszió stb.)
+- Az adathalmaz rövid bemutatása
+
+2. Baseline modell
+
+- Egy egyszerű (naív) megoldás implementálása
+- Eredmények dokumentálása
+
+3. Neurális háló modell
+
+- Saját architektúra tervezése és implementálása
+- Tanítás és validáció
+
+4. Értékelés
+
+- Megfelelő metrikák használata (pl. accuracy, F1-score)
+- Összehasonlítás a baseline-nal
+
+5. Best practice-ek alkalmazása (javaslatok)
+
+- train/validation/test split
+- regularizáció (pl. dropout)
+- hyperparameter hangolás
+- reprodukálhatóság biztosítása
+
+6. Eredmények és következtetések
+
+- Grafikonok (loss, accuracy)
