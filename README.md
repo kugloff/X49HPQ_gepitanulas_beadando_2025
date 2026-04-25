@@ -87,17 +87,19 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ---
 
-### @todo: 6. Baseline modell
+### 6. Baseline modell
 
-- Egy egyszerű baseline modellként Logistic Regression modell használata
+- Egy egyszerű baseline modellként Logistic Regression (Logisztikus Regresszió) modell használata
+- Ez a modell nem képes komplex összefüggéseket megtanulni
+- Az eredményeit azért rögzítjük, hogy megtudjuk, hogy a bonyolult neurális háló valóban hoz-e érdemi javulást
 - Célja, hogy összehasonlítási alapot adjon a neurális háló teljesítményéhez
 
 - Tanítás: u.a
 - Validáció: u.a
 
 - Eredmények:
-    - Accuracy:
-    - F1-score:
+    - Accuracy: 0.820896
+    - F1-score: 0.76
 
 ---
 
@@ -105,6 +107,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 - Használtam egy Sequential neurális hálót, több rejtett réteggel
     - Dense(16), Dense(8), Dense(4), Dense(1)
+    - Csökkenő neuronszámokat használtam, hogy a modell fokozatosan sűrítse az információt a bináris döntés előtt
 - Aktivációs függvények: 
     - ReLU a rejtett rétegeknél,
     - sigmoid a kimeneti rétegnél
@@ -133,16 +136,14 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ---
 
-### @todo: 10. Modellek összehasonlítása
+### 10. Modellek összehasonlítása
 
-A baseline és a neurális háló teljesítményének összehasonlítása:
+A baseline és a neurális háló teljesítményének összehasonlítása táblázatban:
 
 | Modell | Accuracy | F1-score |
 |--------|----------|----------|
-| Logistic Regression | | |
-| Neurális háló | | |
-
-Megfigyelhető, hogy ...
+| Logistic Regression | 0.820896 | 0.76 |
+| Neurális háló | 0.820896 | 0.75 |
 
 ---
 
@@ -156,7 +157,19 @@ Megfigyelhető, hogy ...
 
 ---
 
-### @todo: Következtetés
+### 12. Alkalmazott Best Pratice-ek
+
+- Adat szétválasztás: 80-20% train-validation split
+- `stratify` használata az osztályarányok megtartásához
+- Korai megállás, `EarlyStopping`, ez leállítja a tanítást, ha a validációs loss már nem javul 25 epoch-on keresztül
+- ~~Regularizáció: Dropout rétegek a túltanulás elkerülésére~~
+- ~~Reprodukálhatóság: Fixált random seed-eket használtam minden könyvtárnál~~
+
+---
+
+### 13. Következtetés
+
+Megfigyelhető, hogy a két modell azonos pontossággal (82.09%) zárt, azonban a logisztikus regresszió F1-értéke némileg magasabb lett (0.76 vs 0.75). Ez azt mutatja, hogy ezen a konkrét adathalmazon a komplex neurális háló nem tudott érdemi előnyt felmutatni az egyszerűbb lineáris modellel szemben.
 
 ---
 
