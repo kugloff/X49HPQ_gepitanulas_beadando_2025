@@ -8,7 +8,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ## Projekt felépítése
 
-- `titanic.ipynb` - fő notebook – adatkezelés és modell
+- `titanic.ipynb` - fő notebook – adatkezelés és modellek
 - `docs` mappa - a beadandók követelményei
 - `titanic` mappa - Titanic adatfájl (Kaggle-ről)
 - `setup_venv.bat` - virtuális környezetet létrehozó batch fájl:
@@ -89,7 +89,7 @@ A cél a **túlélés valószínűségének előrejelzése** a hajó utasainak a
 
 ### 6. Baseline modell
 
-- Egy egyszerű baseline modellként Logistic Regression (Logisztikus Regresszió) modell használata
+- Egy egyszerű baseline modellként Logistic Regression (Logisztikus Regresszió) modellt használtam
 - Ez a modell nem képes komplex összefüggéseket megtanulni
 - Az eredményeit azért rögzítjük, hogy megtudjuk, hogy a bonyolult neurális háló valóban hoz-e érdemi javulást
 - Célja, hogy összehasonlítási alapot adjon a neurális háló teljesítményéhez
