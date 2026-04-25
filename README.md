@@ -172,6 +172,6 @@ Megfigyelhető, hogy ...
 ---
 
 ## Készítette
-**Varga Zsófia X49HPQ**  
-Gépi tanulás beadandó 2025
-Neurális hálózatok beadandó 2026
+- **Varga Zsófia X49HPQ**  
+- Gépi tanulás beadandó 2025
+- Neurális hálózatok beadandó 2026
